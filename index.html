@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+    <title>GMG Registration</title>
+  </head>
+  <body>
+    <div class="row">
+      <section class="section">
+        <header>
+          <h3>GMG Registration</h3>
+          <h4>Please fill your information bellow</h4>
+        </header>
+        <main>
+          <form method="post" autocomplete="off" name="google-sheet">
+            <div class="form-item box-item">
+              <input type="text" name="Name" placeholder="Name*" value=""
+              required="" />
+            
+            </div>
+
+            <div class="form-item box-item">
+              <input
+                type="email"
+                name="Email"
+                placeholder="Email*"
+                value=""
+                required=""
+                
+              />
+            
+            </div>
+
+            <div class="form-item box-item">
+              <div class="form-item-triple">
+                <div class="radio-label">
+                  <label class="label">You are a/an</label>
+                </div>
+                <div class="form-item">
+                  <input
+                    id="Male"
+                    type="radio"
+                    name="Almuni/Student"
+                    value="Student"
+                    data-once
+                  />
+                  <label for="Student">Student</label>
+                </div>
+                <div class="form-item">
+                  <input
+                    id="Female"
+                    type="radio"
+                    name="Almuni/Student"
+                    value="Almuni"
+                    data-once
+                  />
+                  <label for="Almuni">Almuni</label>
+                </div>
+              </div>
+
+
+            </div>
+
+            <div class="form-item box-item">
+              <input
+                type="text"
+                name="Registration_Number"
+                placeholder="Registration Number"
+                =
+              />
+            
+            </div>
+
+            <div class="form-item-double box-item">
+              <div class="form-item">
+                <input
+                  type="text"
+                  name="College"
+                  placeholder="Your College Name"
+                  
+                />
+               
+              </div>
+              <div class="form-item">
+                <input
+                  type="text"
+                  name="Graduation"
+                  placeholder="Your Graduation year"
+                  value=""
+                  required=""
+                />
+               
+              </div>
+            </div>
+            <div class="form-item box-item">
+              <input
+                type="text"
+                name="Phone"
+                placeholder="Whatsapp Number"
+                value=""
+                required=""
+                data-count="10"
+              />
+         
+             
+            </div>
+            <div class="form-item" style="align-self: center;"> <input type="submit"
+              <span  id="submit" value="Submit" class="submit"></span>
+            </div>
+          </form>
+        </main>
+        <footer>
+          <p>Connect Us </p>
+          <a href="https://www.instagram.com/srmuaa/?hl=en"><i  class="fa fa-instagram" style="font-size:24px"></i></a>
+          <a href="https://www.linkedin.com/school/srmuaa/"><i class="fa fa-linkedin-square" style="font-size:24px"></i></a>
+
+        </footer>
+        <i class="wave"></i>
+      </section>
+    </div>
+
+    <script>
+      const scriptURL =
+        "https://script.google.com/macros/s/AKfycbzh2YRv1BQ9-sSSaN4L3ikr57QeU5JXweQpjcQ48mXknU9wPIXUpjkNl-1IR_QUvfA/exec";
+      const form = document.forms["google-sheet"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => (window.location.href = "thanks.html"))
+          .catch((error) => console.error("Error!", error.message));
+      });
+    </script>
+  </body>
+</html>
